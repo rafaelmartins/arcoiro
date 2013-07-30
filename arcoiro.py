@@ -16,11 +16,12 @@ app.config.from_envvar('ARCOIRO_SETTINGS')
 cache = FileSystemCache('/tmp/__arcoiro__', default_timeout=60 * 60 * 24)
 
 FRAMESET = u'''\
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
     <head>
         <title>arcoiro - faz aquilo que você sabe!</title>
-        <meta http-equiv="cache-control" content="no-cache"/>
-        <meta http-equiv="pragma" content="no-cache"/>
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="pragma" content="no-cache">
     </head>
     <frameset rows="*,50" border="0" frameborder="no" framespacing="0">
         <frame src="{{ url }}" noresize>
@@ -42,7 +43,11 @@ FOOTER = u'''\
             }
         </style>
     <body>
-        <p>arcoiro - faz aquilo que você sabe!</p>
+        <p>
+            arcoiro - faz aquilo que você sabe! Não entendeu!?
+            <a href="http://www.youtube.com/watch?v=mpXShHdQGcQ"
+                target="_blank">Clique aqui!</a>
+        </p>
         <p>
             Este site não hospeda nenhum arquivo. Todo o conteúdo é obtido
             diretamente do <a href="http://tumblr.com">tumblr.com</a>, e é de
