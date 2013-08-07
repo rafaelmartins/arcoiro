@@ -10,6 +10,8 @@ class BaseProvider(object):
 
     def __init__(self, cache_dir=None, default_timeout=60 * 60 * 24,
                  api_key=None):
+        # store it in cache for 1 day. using file system cache because
+        # memcached is too mainstream. :)
         self.cache = FileSystemCache(cache_dir=cache_dir or '/tmp/__arcoiro__',
                                      default_timeout=default_timeout)
         self._api_key = api_key
@@ -46,6 +48,8 @@ class BaseProvider(object):
         if urls is not None:
             return urls
         urls = self.get_urls_from_tag(tag)
+        if urls is None:
+            return None
         self.cache.set(cache_key, urls)
         return urls
 
